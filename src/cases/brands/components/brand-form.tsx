@@ -1,6 +1,6 @@
 import { SidebarForm } from "@/components/layout/sidebar-form";
 import { useNavigate, useParams } from "react-router-dom";
-import { useCategory, useCreateCategory, useDeleteCategory, useUpdateCategory } from "../hooks/use-category";
+import { useBrand, useCreateBrand, useDeleteBrand, useUpdateBrand } from "../hooks/use-brand";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -12,14 +12,14 @@ const formSchema = z.object({
   name: z.string().min(2, 'Informe pelo menos 2 caracteres').max(60, 'Máximo de 60 caracteres')
 })
 
-export function CategoryForm() {
+export function BrandForm() {
     const navigate = useNavigate();
     const {id} = useParams<{id: string}>();
-    const {data, isLoading} = useCategory(id ?? '');
+    const {data, isLoading} = useBrand(id ?? '');
 
-    const createCategory = useCreateCategory();
-    const updateCategory = useUpdateCategory();
-    const deleteCategory = useDeleteCategory();
+    const createBrand = useCreateBrand();
+    const updateBrand = useUpdateBrand();
+    const deleteBrand = useDeleteBrand();
 
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -38,25 +38,25 @@ export function CategoryForm() {
 
     function onSubmit(value: z.infer<typeof formSchema>) {
         if (id) {
-            updateCategory.mutate(
+            updateBrand.mutate(
                 {
                     id: id,
-                    category: {
+                    brand: {
                         name: value.name
                     }
                 },
                 {
                     onSettled: () => {
-                        navigate('/categories');
+                        navigate('/brands');
                     }
                 }
             );
         } else {
-            createCategory.mutate(
+            createBrand.mutate(
                 {name: value.name},
                 {
                     onSettled: () => {
-                        navigate('/categories');
+                        navigate('/brands');
 
                     }
                 }
@@ -66,16 +66,16 @@ export function CategoryForm() {
 
     function onDelete() {
         if (id) {
-            deleteCategory.mutate(id, {
+            deleteBrand.mutate(id, {
                 onSettled: () => {
-                    navigate('/categories');
+                    navigate('/brands');
                 }
             });
         }
     }
 
     return (
-        <SidebarForm title={id ? 'Editar Categoria' : 'Adicionar Categoria'}
+        <SidebarForm title={id ? 'Editar Marca' : 'Adicionar Marca'}
                      onSave={form.handleSubmit(onSubmit)}
                      {...(id && {onDelete: onDelete})}
                      loading={isLoading}>
@@ -86,7 +86,7 @@ export function CategoryForm() {
                         name="name"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Nome Categoria</FormLabel>
+                                <FormLabel>Nome Marca</FormLabel>
                                 <FormControl>
                                     <Input {...field} />
                                 </FormControl>
