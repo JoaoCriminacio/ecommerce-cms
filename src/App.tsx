@@ -1,4 +1,4 @@
-import { Routes,Route } from "react-router-dom"
+import { Routes, Route } from "react-router-dom"
 import { ToastContainer } from 'react-toastify'
 import { CategoryLayout } from "./cases/categories/components/category-layout"
 import { CategoryForm } from "./cases/categories/components/category-form"
@@ -40,7 +40,7 @@ function App() {
       <ToastContainer />
 
     </div>
-  )
+  );
 }
 
 export default App

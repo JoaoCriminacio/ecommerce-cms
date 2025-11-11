@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button"
 import { Outlet, useNavigate } from "react-router-dom"
 
 export function BrandLayout() {
-
     const navigate = useNavigate();
     
     function handleCreate() {
@@ -27,9 +26,7 @@ export function BrandLayout() {
                             <Search />
                         </InputGroupAddon>
                     </InputGroup>
-                    <Button
-                        onClick={handleCreate}
-                    >
+                    <Button onClick={handleCreate}>
                         <Plus />
                         Adicionar
                     </Button>
@@ -42,5 +39,5 @@ export function BrandLayout() {
 
             </div>
         </div>
-    )
+    );
 }

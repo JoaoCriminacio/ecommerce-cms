@@ -13,7 +13,6 @@ import {
 } from "@/components/ui/sidebar"
 import { ShoppingCart } from "lucide-react"
 
-// This is sample data.
 const data = {
   navMain: [
     {
