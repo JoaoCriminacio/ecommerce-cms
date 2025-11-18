@@ -8,6 +8,10 @@ import { ProductForm } from "./cases/products/components/product-form"
 import { ProductLayout } from "./cases/products/components/product-layout"
 import { SidebarProvider } from "./components/ui/sidebar"
 import { AppSidebar } from "./components/layout/app-sidebar"
+import { OrderLayout } from "./cases/orders/components/order-layout"
+import { OrderForm } from "./cases/orders/components/order-form"
+import { CustomerLayout } from "./cases/customers/components/customer-layout"
+import { CustomerForm } from "./cases/customers/components/customer-form"
 
 function App() {
 
@@ -31,6 +35,15 @@ function App() {
             <Route path="/products" element={<ProductLayout />}>
               <Route path="new" element={<ProductForm />} />
               <Route path=":id" element={<ProductForm />} />
+            </Route>
+
+            <Route path="/orders" element={<OrderLayout />}>
+              <Route path="new" element={<OrderForm />} />
+              <Route path=":id" element={<OrderForm />} />
+            </Route>
+
+            <Route path="/customers" element={<CustomerLayout />}>
+              <Route path=":id" element={<CustomerForm />} />
             </Route>
             
           </Routes>
