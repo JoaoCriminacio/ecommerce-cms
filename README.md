@@ -2,7 +2,7 @@
 
 ## 📌 Sobre
 
-O E-commerce CMS é um sistema administrativo desenvolvido desenvolvido em sala de aula da disciplina de Programação, do Centro Universitário Mater Dei - UNIMATER, para gerenciar dados essenciais de uma loja virtual. A aplicação permite o cadastro e manutenção de Categorias, Marcas e Produtos, além de visualizar Clientes e acompanhar Pedidos.
+O E-commerce CMS é um sistema administrativo desenvolvido em sala de aula da disciplina de Programação, do Centro Universitário Mater Dei - UNIMATER, para gerenciar dados essenciais de uma loja virtual. A aplicação permite o cadastro e manutenção de Categorias, Marcas e Produtos, além de visualizar Clientes e acompanhar Pedidos.
 
 ## 🖥️ Telas
 
